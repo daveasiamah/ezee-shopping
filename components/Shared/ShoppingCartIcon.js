@@ -6,18 +6,18 @@ import { withNavigation } from "react-navigation";
 
 class ShoppingCartIcon extends Component {
   render() {
-    const { cartItems } = this.props;
+    const { cartItems, navigation } = this.props;
     return (
-      <View style={[styles.container, styles.cartIcon]}>
+      <View style={styles.container}>
         <View style={styles.cartCount}>
-          <Text style={{ color: "white", fontSize: 20 }}>
+          <Text style={{ color: "white", fontSize: 12 }}>
             {cartItems.length}
           </Text>
         </View>
         <Icon
-          onPress={() => alert(this.props.navigation)}
+          onPress={() => navigation.navigate("ShoppingCart")}
           name="ios-cart"
-          size={40}
+          size={30}
           style={{ color: "rgba(0,0,0,0.6)" }}
         />
       </View>
@@ -36,14 +36,19 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
-    width: 100
+    right: 15,
+    justifyContent: "center"
+    // width: 100
+  },
+  cartIcon: {
+    backgroundColor: "blue"
   },
   cartCount: {
-    height: 40,
-    width: 40,
+    height: 30,
+    width: 30,
+    zIndex: 1,
     backgroundColor: "rgba(95,197,123,0.8)",
-    padding: 1,
+    padding: 3,
     borderRadius: 20,
     justifyContent: "center",
     alignItems: "center"

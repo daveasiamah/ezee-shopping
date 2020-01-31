@@ -13,24 +13,20 @@ class ShoppingCart extends Component {
     const { cartItems, removeItemFromCart } = this.props;
     console.log(cartItems);
     return (
-      <View style={{ marginHorizontal: 20 }}>
-        <View style={styles.container}>
-          <Text style={styles.cartHeader}>Items in cart</Text>
-          <View style={styles.checkoutBtn}>
-            <Button
-              title="Checkout"
-              color="deepskyblue"
-              onPress={() => this.props.navigation.push("Checkout")}
-            />
-          </View>
+      <View style={styles.container}>
+        <View style={styles.cartHeader}>
+          <Text style={{ fontWeight: "bold", fontSize: 20 }}>Cart Items</Text>
+          <Button
+            title="Checkout"
+            color="deepskyblue"
+            onPress={() => this.props.navigation.push("Checkout")}
+          />
         </View>
         {this.props.cartItems.length > 0 ? (
-          <View style={{ marginHorizontal: 20 }}>
-            <Product
-              removeItemFromCart={removeItemFromCart}
-              cartItems={cartItems}
-            />
-          </View>
+          <Product
+            removeItemFromCart={removeItemFromCart}
+            cartItems={cartItems}
+          />
         ) : (
           <Text>No items in your cart</Text>
         )}
@@ -42,29 +38,18 @@ const mapStateToProps = state => {
   return { cartItems: state };
 };
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     removeItemFromCart: item =>
-//       dispatch({ type: "REMOVE_FROM_CART", payload: item })
-//   };
-// };
-
 export default connect(mapStateToProps, null)(ShoppingCart);
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    alignItems: "center",
+    // alignItems: "center",
     justifyContent: "space-between",
-    paddingHorizontal: 10,
-    marginVertical: 10
+    paddingHorizontal: 10
   },
   cartHeader: {
-    fontSize: 20,
-    fontWeight: "bold",
-    textAlign: "left",
+    flexDirection: "row",
+    justifyContent: "space-between",
     marginVertical: 20,
-    paddingLeft: 20,
-    textTransform: "uppercase"
+    paddingHorizontal: 20
   }
 });

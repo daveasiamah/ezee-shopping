@@ -14,21 +14,62 @@ import {
   View,
   FlatList,
   Dimensions,
-  Button
+  Button,
+  Image
 } from "react-native";
-// import Card from "../Shared/Card";
 
-import uuid from "uuid/v4";
 import { connect } from "react-redux";
 
 const items = [
-  { id: uuid(), title: "Cheese", price: 2.55, category: "Refrigerated foods" },
-  { id: uuid(), title: "Crisps", price: 3.99, category: "The Snack isle" },
-  { id: uuid(), title: "Pizza", price: 4.99, category: "Refrigerated foods" },
-  { id: uuid(), title: "Chocolate", price: 1.99, category: "The Snack isle" },
-  { id: uuid(), title: "Icing Sugar", price: 1.59, category: "Home baking" },
-  { id: uuid(), title: "Yeast", price: 3.59, category: "Home baking" },
-  { id: uuid(), title: "Cinnamon", price: 3, category: "Spices" }
+  {
+    id: 1,
+    title: "Cheese",
+    price: 2.55,
+    category: "Refrigerated foods",
+    img: require("../../assets/images/cheese.jpg")
+  },
+  {
+    id: 2,
+    title: "Crisps",
+    price: 3.99,
+    category: "The Snack isle",
+    img: require("../../assets/images/crisps.jpg")
+  },
+  {
+    id: 3,
+    title: "Pizza",
+    price: 4.99,
+    category: "Refrigerated foods",
+    img: require("../../assets/images/pizza.jpeg")
+  },
+  {
+    id: 4,
+    title: "Chocolate",
+    price: 1.99,
+    category: "The Snack isle",
+    img: require("../../assets/images/chocolate.jpg")
+  },
+  {
+    id: 5,
+    title: "Icing Sugar",
+    price: 1.59,
+    category: "Home baking",
+    img: require("../../assets/images/icing_sugar.jpg")
+  },
+  {
+    id: 6,
+    title: "Yeast",
+    price: 3.59,
+    category: "Home baking",
+    img: require("../../assets/images/yeast.jpg")
+  },
+  {
+    id: 7,
+    title: "Cinnamon",
+    price: 3,
+    category: "Spices",
+    img: require("../../assets/images/cinnamon.jpg")
+  }
 ];
 
 const formatData = (items, numColumns) => {
@@ -54,9 +95,18 @@ class Home extends Component {
       return <View style={[styles.item, styles.itemInvisible]} />;
     }
     return (
-      <View style={styles.item}>
+      <View style={styles.card}>
+        <Image
+          source={item.img}
+          style={{
+            width: "100%",
+            height: "60%",
+            marginBottom: 6
+            // resizeMode: "contain"
+          }}
+        />
         <Text style={styles.itemText}>{item.title}</Text>
-        <Text style={styles.itemText}>
+        <Text style={styles.itemPrice}>
           {"$"}
           {item.price}
         </Text>
@@ -74,6 +124,7 @@ class Home extends Component {
     return (
       <FlatList
         data={formatData(items, numColumns)}
+        keyExtractor={(item, index) => index.toString()}
         style={styles.container}
         renderItem={this.renderItem}
         numColumns={numColumns}
@@ -92,7 +143,9 @@ export default connect(null, mapDispatchToProps)(Home);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginVertical: 20
+    // marginVertical: 20
+    // width: "50%",
+    height: 200
   },
   item: {
     backgroundColor: "#fff",
@@ -101,7 +154,7 @@ const styles = StyleSheet.create({
     shadowColor: "#333",
     shadowOpacity: 0.3,
     shadowRadius: 2,
-    padding: 10,
+    padding: 5,
     flex: 1,
     margin: 4,
     borderRadius: 10,
@@ -112,20 +165,34 @@ const styles = StyleSheet.create({
   },
   itemText: {
     color: "#444440",
-    fontSize: 20
+    fontSize: 20,
+    fontWeight: "bold",
+    paddingVertical: 7
+  },
+  itemPrice: {
+    color: "#444440",
+    fontSize: 20,
+    paddingVertical: 7
   },
   button: {
-    // flex: 1,
+    flex: 1,
     position: "absolute",
-    bottom: 5,
-    marginBottom: 10,
+    bottom: 10,
+    marginTop: 10,
     width: 170
   },
   card: {
-    padding: 10,
+    padding: 5,
     flex: 1,
-    margin: 4,
+    margin: 5,
     borderRadius: 10,
-    height: Dimensions.get("window").width / numColumns
+    backgroundColor: "#fff",
+    alignItems: "center",
+    shadowOffset: { width: 1, height: 1 },
+    shadowColor: "#333",
+    shadowOpacity: 0.3,
+    shadowRadius: 2,
+    height: 350
+    // height: Dimensions.get("window").width / 1
   }
 });

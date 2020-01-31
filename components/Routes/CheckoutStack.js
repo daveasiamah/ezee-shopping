@@ -9,7 +9,9 @@ const screens = {
     screen: Checkout,
     navigationOptions: ({ navigation }) => {
       return {
-        headerTitle: () => <Header navigation={navigation} title="Checkout" />
+        headerTitle: () => (
+          <Header navigation={navigation} title="Shopping Cart" />
+        )
       };
     }
   }
@@ -17,7 +19,7 @@ const screens = {
 
 const CheckoutStack = createStackNavigator(screens, {
   defaultNavigationOptions: {
-    headerStyle: { backgroundColor: "#fff", height: 80 }
+    headerStyle: { backgroundColor: "#fff" }
   }
 });
 

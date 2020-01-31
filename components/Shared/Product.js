@@ -16,8 +16,8 @@ class Product extends Component {
     const { cartItems, removeItemFromCart } = this.props;
     return (
       <ScrollView>
-        {cartItems.map(item => (
-          <View style={styles.container} key={item.id}>
+        {cartItems.map((item, index) => (
+          <View style={styles.container} key={index}>
             <View style={styles.item}>
               <Text style={styles.itemText}>Item name: {item.title}</Text>
               <Text style={styles.itemText}>Category: {item.category}</Text>
@@ -25,11 +25,13 @@ class Product extends Component {
                 Price: {"$"}
                 {item.price}
               </Text>
-              <Button
-                title="remove from cart"
-                color="darkgrey"
-                onPress={() => removeItemFromCart(item.id)}
-              />
+              <View style={styles.button}>
+                <Button
+                  title="remove from cart"
+                  color="darkgrey"
+                  onPress={() => removeItemFromCart(item.id)}
+                />
+              </View>
             </View>
           </View>
         ))}
@@ -54,37 +56,37 @@ export default connect(mapSateToProps, mapDispatchToProps)(Product);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 20,
-    marginHorizontal: 10
+    margin: 5
   },
   item: {
-    flex: 1,
-    // flexDirection: "row",
-    flexWrap: "wrap",
-    paddingHorizontal: 20,
+    height: 200,
+    paddingHorizontal: 10,
+    // paddingBottom: 80,
+    paddingTop: 10,
     justifyContent: "flex-start",
     backgroundColor: "#fff",
     shadowOffset: { width: 1, height: 1 },
     shadowColor: "red",
     shadowOpacity: 0.3,
     shadowRadius: 5,
-    borderRadius: 10
-    // height: Dimensions.get("window").width / numColumns // approximate a square
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: "black"
+    // height: Dimensions.get("window").width / 2 // approximate a square
   },
   itemInvisible: {
     backgroundColor: "transparent"
   },
   itemText: {
     color: "black",
-    fontSize: 20,
-    paddingTop: 20
+    fontSize: 20
+    // paddingTop: 20
   },
   button: {
-    // flex: 1,
     position: "absolute",
     bottom: 5,
-    marginBottom: 10,
-    width: 170
+    margin: 10,
+    width: "100%"
   },
   card: {
     padding: 10,

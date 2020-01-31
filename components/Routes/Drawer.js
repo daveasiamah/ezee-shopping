@@ -9,15 +9,14 @@ RootDrawerNavigator = createDrawerNavigator({
   Home: {
     screen: HomeStack
   },
-  About: {
-    screen: AboutStack
-  },
   Cart: {
     screen: CartStack
   },
-
   Checkout: {
     screen: CheckoutStack
+  },
+  About: {
+    screen: AboutStack
   }
 });
 

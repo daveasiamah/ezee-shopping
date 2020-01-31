@@ -9,7 +9,7 @@ class About extends Component {
       <View style={styles.container}>
         <Text style={globalStyles.titleText}>EZee Shopping</Text>
         <Text style={globalStyles.paragraph}> 2020, All Rights Reserved.</Text>
-        <Text style={globalStyles.paragraph}>Powered by ❤-OS V.0.1.</Text>
+        <Text style={globalStyles.paragraph}>"Powered by ❤(D.A)"</Text>
       </View>
     );
   }

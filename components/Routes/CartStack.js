@@ -19,7 +19,7 @@ const screens = {
 
 const CheckoutStack = createStackNavigator(screens, {
   defaultNavigationOptions: {
-    headerStyle: { backgroundColor: "#fff", height: 80 }
+    headerStyle: { backgroundColor: "#fff" }
   }
 });
 
