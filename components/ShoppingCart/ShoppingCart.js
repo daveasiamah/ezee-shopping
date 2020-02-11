@@ -22,14 +22,16 @@ class ShoppingCart extends Component {
             onPress={() => this.props.navigation.push("Checkout")}
           />
         </View>
-        {this.props.cartItems.length > 0 ? (
-          <Product
-            removeItemFromCart={removeItemFromCart}
-            cartItems={cartItems}
-          />
-        ) : (
-          <Text>No items in your cart</Text>
-        )}
+        <View style={{ flex: 1, marginBottom: 20 }}>
+          {this.props.cartItems.length > 0 ? (
+            <Product
+              removeItemFromCart={removeItemFromCart}
+              cartItems={cartItems}
+            />
+          ) : (
+            <Text>No items in your cart</Text>
+          )}
+        </View>
       </View>
     );
   }
@@ -42,11 +44,12 @@ export default connect(mapStateToProps, null)(ShoppingCart);
 
 const styles = StyleSheet.create({
   container: {
-    // alignItems: "center",
+    flex: 1,
     justifyContent: "space-between",
     paddingHorizontal: 10
   },
   cartHeader: {
+    // flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
     marginVertical: 20,

@@ -4,7 +4,7 @@ import React, { Component } from "react";
 // import * as Font from "expo-font";
 // import { AppLoading } from "expo";
 import { Provider } from "react-redux";
-import Store from "./Store";
+import { Store } from "./Store";
 import { Text } from "react-native";
 import Navigator from "./components/Routes/Drawer";
 

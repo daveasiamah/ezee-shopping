@@ -1,12 +1,3 @@
-// const Home = ({ navigation }) => {
-//   const [items, setItems] = useState([
-//     { id: uuid(), title: "Cheese", price: 2.5, Location: "Refrigerated foods" },
-//     { id: uuid(), title: "Crisps", price: 3, Location: "The Snack isle" },
-//     { id: uuid(), title: "Pizza", price: 4, Location: "Refrigerated foods" },
-//     { id: uuid(), title: "Chocolate", price: 1.5, Location: "The Snack isle" },
-//     { id: uuid(), title: "Icing Sugar", price: 1.5, Location: "Home baking" },
-//     { id: uuid(), title: "Cinnamon", price: 3, Location: "Home baking" }
-//   ]);
 import React, { Component } from "react";
 import {
   StyleSheet,

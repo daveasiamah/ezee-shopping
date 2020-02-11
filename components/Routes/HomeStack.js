@@ -5,15 +5,14 @@ import ShoppingCart from "../ShoppingCart/ShoppingCart";
 import Checkout from "../Checkout/Checkout";
 import Header from "../Shared/Header";
 import ShoppingCartIcon from "../Shared/ShoppingCartIcon";
+import { Text } from "react-native";
 
 const screens = {
   Home: {
     screen: Home,
     navigationOptions: ({ navigation }) => {
       return {
-        headerTitle: () => (
-          <Header navigation={navigation} title="Ezee Shopping" />
-        )
+        headerLeft: () => <Header navigation={navigation} />
       };
     }
   },
@@ -36,6 +35,10 @@ const HomeStack = createStackNavigator(screens, {
     headerStyle: {
       backgroundColor: "#fff"
     },
+    headerTitleAlign: "center",
+    headerTitle: () => (
+      <Text style={{ fontSize: 25, fontWeight: "900" }}>Ezee-Shopping</Text>
+    ),
     headerRight: () => <ShoppingCartIcon />
   }
 });

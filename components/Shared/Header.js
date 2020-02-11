@@ -9,17 +9,12 @@ const Header = ({ navigation, title }) => {
   };
 
   return (
-    <View style={styles.header}>
-      <MaterialIcons
-        name="menu"
-        size={28}
-        onPress={openMenu}
-        style={styles.icon}
-      />
-      <View>
-        <Text style={styles.headerText}>{title}</Text>
-      </View>
-    </View>
+    <MaterialIcons
+      name="menu"
+      size={28}
+      onPress={openMenu}
+      style={styles.icon}
+    />
   );
 };
 
@@ -28,10 +23,10 @@ export default Header;
 const styles = StyleSheet.create({
   header: {
     flex: 1,
-    width: "100%",
-    height: "100%",
-    width: 320,
-    flexDirection: "column",
+    // width: "100%",
+    // height: "100%",
+    // width: 320,
+    // flexDirection: "column",
     alignItems: "center",
     justifyContent: "center"
   },
@@ -39,12 +34,12 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 20,
     letterSpacing: 1,
-    marginLeft: 50,
+    // marginLeft: 150,
     justifyContent: "center",
     alignItems: "center"
   },
   icon: {
     position: "absolute",
-    left: 1
+    left: 10
   }
 });

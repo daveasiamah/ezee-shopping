@@ -6,7 +6,8 @@ import {
   ScrollView,
   StyleSheet,
   Dimensions,
-  Button
+  Button,
+  Image
 } from "react-native";
 
 import { connect } from "react-redux";
@@ -15,27 +16,35 @@ class Product extends Component {
   render() {
     const { cartItems, removeItemFromCart } = this.props;
     return (
-      <ScrollView>
-        {cartItems.map((item, index) => (
-          <View style={styles.container} key={index}>
-            <View style={styles.item}>
-              <Text style={styles.itemText}>Item name: {item.title}</Text>
-              <Text style={styles.itemText}>Category: {item.category}</Text>
-              <Text style={styles.itemText}>
-                Price: {"$"}
-                {item.price}
-              </Text>
-              <View style={styles.button}>
-                <Button
-                  title="remove from cart"
-                  color="darkgrey"
-                  onPress={() => removeItemFromCart(item.id)}
+      <View>
+        <ScrollView>
+          {cartItems.map((item, index) => (
+            <View style={styles.container} key={index}>
+              <View style={styles.item}>
+                <Image
+                  source={item.img}
+                  style={{ width: "45%", height: "50%", marginRight: 10 }}
                 />
+                <View>
+                  <Text style={styles.itemHeader}>{item.title}</Text>
+                  <Text style={styles.itemText1}>{item.category}</Text>
+                  <Text style={styles.itemText}>
+                    {"$"}
+                    {item.price}
+                  </Text>
+                </View>
+                <View style={styles.button}>
+                  <Button
+                    title="remove from cart"
+                    color="crimson"
+                    onPress={() => removeItemFromCart(item.id)}
+                  />
+                </View>
               </View>
             </View>
-          </View>
-        ))}
-      </ScrollView>
+          ))}
+        </ScrollView>
+      </View>
     );
   }
 }
@@ -59,28 +68,32 @@ const styles = StyleSheet.create({
     margin: 5
   },
   item: {
+    flexDirection: "row",
     height: 200,
     paddingHorizontal: 10,
-    // paddingBottom: 80,
     paddingTop: 10,
-    justifyContent: "flex-start",
     backgroundColor: "#fff",
     shadowOffset: { width: 1, height: 1 },
     shadowColor: "red",
     shadowOpacity: 0.3,
     shadowRadius: 5,
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: "black"
-    // height: Dimensions.get("window").width / 2 // approximate a square
+    borderRadius: 10
   },
   itemInvisible: {
     backgroundColor: "transparent"
   },
-  itemText: {
+  itemHeader: {
     color: "black",
+    fontWeight: "bold",
     fontSize: 20
-    // paddingTop: 20
+  },
+  itemText1: {
+    color: "#333",
+    fontSize: 15
+  },
+  itemText: {
+    color: "#333",
+    fontSize: 20
   },
   button: {
     position: "absolute",

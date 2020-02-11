@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import Icon from "@expo/vector-icons/Ionicons";
 import { connect } from "react-redux";
 import { withNavigation } from "react-navigation";
@@ -8,19 +8,22 @@ class ShoppingCartIcon extends Component {
   render() {
     const { cartItems, navigation } = this.props;
     return (
-      <View style={styles.container}>
+      <TouchableOpacity
+        style={styles.container}
+        onPress={() => navigation.navigate("ShoppingCart")}
+      >
         <View style={styles.cartCount}>
           <Text style={{ color: "white", fontSize: 12 }}>
             {cartItems.length}
           </Text>
         </View>
         <Icon
-          onPress={() => navigation.navigate("ShoppingCart")}
+          // onPress={() => navigation.navigate("ShoppingCart")}
           name="ios-cart"
           size={30}
           style={{ color: "rgba(0,0,0,0.6)" }}
         />
-      </View>
+      </TouchableOpacity>
     );
   }
 }

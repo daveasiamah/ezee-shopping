@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "googleLogin",
-    "slug": "googleLogin",
+    "name": "ezee-shopping",
+    "slug": "ezeeshopping",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [
@@ -25,6 +25,8 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "React Native and Redux Shopping Cart App",
+    "githubUrl": "https://github.com/daveasiamah/ezee-shopping"
   }
 }
